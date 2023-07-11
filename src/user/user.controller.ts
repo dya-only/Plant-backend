@@ -13,8 +13,9 @@ export class UserController {
   }
 
   @Get(':name')
-  getUser(@Param() name: string): Promise<User> {
-    return this.userService.findOne(name)
+  getUser(@Param() params: { name: string }): Promise<User> {
+    console.log(`find user request | name: ${params.name}`)
+    return this.userService.findOne(params.name)
   }
 
   @Post()
