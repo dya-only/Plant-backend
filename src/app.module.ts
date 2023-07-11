@@ -4,9 +4,8 @@ import { AppService } from './app.service'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { ConfigurationModule } from './configuration/configuration.module'
-import { UserController } from './user/user.controller';
-import { UserService } from './user/user.service';
-import { UserModule } from './user/user.module';
+import { UserModule } from './user/user.module'
+import { join } from 'path'
 
 @Module({
   imports: [TypeOrmModule.forRootAsync({
@@ -19,14 +18,14 @@ import { UserModule } from './user/user.module';
         username: configService.get('DATABASE_USERNAME'),
         password: configService.get('DATABASE_PASSWORD'),
         database: configService.get('DATABASE_SCHEMA'),
-        entities: [],
+        entities: [join(__dirname, '**', '*.entity.{ts,js}')],
         synchronize: configService.get<boolean>('TYPEORM_SYBCHRONIZE')
       })
     }), 
-    ConfigurationModule, UserModule
+    ConfigurationModule, UserModule, UserModule
   ],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 
 export class AppModule {}
