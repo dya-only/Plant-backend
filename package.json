@@ -28,6 +28,7 @@
     "@nestjs/websockets": "^9.4.0",
     "cache-manager-ioredis": "^2.1.0",
     "mysql2": "^3.2.4",
+    "pg": "^8.11.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
     "typeorm": "^0.3.15"
