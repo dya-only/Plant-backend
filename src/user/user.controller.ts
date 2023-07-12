@@ -7,6 +7,11 @@ import { UserDto } from './dto/user.dto'
 export class UserController {
   constructor(private userService: UserService) {}
 
+  @Post()
+  async authUser(@Body() user: UserDto) {
+    return this.userService.login(user)
+  }
+
   @Get()
   getAll(): Promise<User[]> {
     return this.userService.findAll()
@@ -18,7 +23,7 @@ export class UserController {
     return this.userService.findOne(params.name)
   }
 
-  @Post()
+  @Post('/create')
   createUser(@Body() user: UserDto) {
     console.log(`create user request | name: ${user.name}, passwd: ${user.passwd}`)
     return this.userService.create(user)

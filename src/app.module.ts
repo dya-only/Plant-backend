@@ -6,6 +6,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { ConfigurationModule } from './configuration/configuration.module'
 import { UserModule } from './user/user.module'
 import { join } from 'path'
+import { PlantController } from './plant/plant.controller';
+import { PlantService } from './plant/plant.service';
+import { PlantModule } from './plant/plant.module';
 
 @Module({
   imports: [TypeOrmModule.forRootAsync({
@@ -22,7 +25,7 @@ import { join } from 'path'
         synchronize: configService.get<boolean>('TYPEORM_SYBCHRONIZE')
       })
     }), 
-    ConfigurationModule, UserModule, UserModule
+    ConfigurationModule, UserModule, UserModule, PlantModule
   ],
   controllers: [AppController],
   providers: [AppService],
