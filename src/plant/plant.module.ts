@@ -8,6 +8,6 @@ import { UserModule } from 'src/user/user.module'
 @Module({
   imports: [TypeOrmModule.forFeature([Plant])],
   controllers: [PlantController],
-  providers: [PlantService]
+  providers: [PlantService],
 })
 export class PlantModule {}

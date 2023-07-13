@@ -4,6 +4,6 @@ export default () => ({
   DATABASE_USERNAME: process.env.DATABASE_USERNAME,
   DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
   DATABASE_SCHEMA: process.env.DATABASE_SCHEMA,
-  TYPEORM_SYBCHRONIZE: process.env.MODE === "DEV" ? true : false,
-  MODE: process.env.MODE
+  TYPEORM_SYBCHRONIZE: process.env.MODE === 'DEV',
+  MODE: process.env.MODE,
 })

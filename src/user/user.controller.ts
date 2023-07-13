@@ -25,7 +25,9 @@ export class UserController {
 
   @Post('/create')
   createUser(@Body() user: UserDto) {
-    console.log(`create user request | name: ${user.name}, passwd: ${user.passwd}`)
+    console.log(
+      `create user request | name: ${user.name}, passwd: ${user.passwd}`
+    )
     return this.userService.create(user)
   }
 }

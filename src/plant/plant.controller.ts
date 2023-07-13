@@ -1,11 +1,10 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common'
+import {Body, Controller, Get, Header, Param, Post, UseGuards} from '@nestjs/common'
 import { PlantService } from './plant.service'
 import { PlantDto } from './dto/plant.dto'
 import { Plant } from './entities/plant.entity'
 import { UserService } from 'src/user/user.service'
 
 @Controller('plant')
-// @UseGuards()
 export class PlantController {
   constructor(private plantService: PlantService) {}
 

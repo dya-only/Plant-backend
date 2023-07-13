@@ -6,9 +6,8 @@ import config from './configuration'
     ConfigModule.forRoot({
       envFilePath: '.env',
       isGlobal: true,
-      load: [config]
-    })
-  ]
+      load: [config],
+    }),
+  ],
 })
-
 export class ConfigurationModule {}
